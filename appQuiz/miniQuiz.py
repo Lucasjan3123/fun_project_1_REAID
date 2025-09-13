@@ -477,8 +477,7 @@ personality_questions = [
 total_perso_q = len(personality_questions)
 
 
-# ====================== MAIN ======================
-# ========== MAIN APP ==========
+# ====================== MAIN APP ======================
 if "logged_in" not in st.session_state:
     st.session_state["logged_in"] = False
 
@@ -502,3 +501,4 @@ else:
         profile_page()
     elif st.session_state.page == "logout":
         logout()
+
