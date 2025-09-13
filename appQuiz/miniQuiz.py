@@ -42,12 +42,24 @@ sidebar_style = """
 }
 
 /* Button wrapper flex */
-.sidebar-buttons {
-    flex: 1;
+sidebar-buttons {
     display: flex;
     flex-direction: column;
     padding: 1em;
     gap: 0.8em;
+    height: 100%;   /* pastikan penuh */
+}
+
+.sidebar-buttons button {
+    flex: 1;   /* semua tombol berbagi tinggi sama rata */
+    width: 100% !important;
+    background-color: white !important;
+    color: black !important;
+    border: 1px solid #ddd !important;
+    font-size: 1em !important;
+    font-weight: 500 !important;
+    border-radius: 12px !important;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 
 /* Tombol seragam */
@@ -157,11 +169,11 @@ def show_sidebar():
 
     if st.sidebar.button("🎭 Personality Quiz"):
        st.session_state.page = "personality"
-    if st.sidebar.button("🎯 Quiz           "):
+    if st.sidebar.button("🎯 Quiz "):
         st.session_state.page = "quiz"
-    if st.sidebar.button("👤 Profile        "):
+    if st.sidebar.button("👤 Profile"):
         st.session_state.page = "profile"
-    if st.sidebar.button("🚪 Logout         "):
+    if st.sidebar.button("🚪 Logout"):
         st.session_state.page = "logout"
 
     st.sidebar.markdown('</div>', unsafe_allow_html=True)
@@ -514,5 +526,6 @@ else:
         profile_page()
     elif st.session_state.page == "logout":
         logout()
+
 
 
