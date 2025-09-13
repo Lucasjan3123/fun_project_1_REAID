@@ -49,7 +49,7 @@ Buka browser di:
 Halaman login dengan username & password.
 Jika berhasil login → diarahkan ke dashboard.
 
-📸 [masukkan screenshot login di sini]
+📸 [<img width="956" height="552" alt="image" src="https://github.com/user-attachments/assets/90b04704-d761-40e3-94c9-e2bbffac4b16" />]
 
 2. 🎭 Personality Quiz
 
@@ -57,8 +57,8 @@ Jawab 10 pertanyaan untuk mengetahui profesi yang sesuai:
 misalnya Programmer, Designer, atau Data Scientist.
 Hasil quiz ditampilkan dalam bentuk meme/gambar + penjelasan posisi.
 
-📸 [masukkan screenshot personality quiz]
-
+📸 [<img width="764" height="510" alt="image" src="https://github.com/user-attachments/assets/f19cff89-2db8-4290-acf5-34d971675a40" />]
+📸 [<img width="764" height="510" alt="image" src="https://github.com/user-attachments/assets/f19cff89-2db8-4290-acf5-34d971675a40" />]
 3. 🧠 Trivia Quiz
 
 Kuis pengetahuan umum dengan skor otomatis.
