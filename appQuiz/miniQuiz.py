@@ -481,8 +481,8 @@ total_perso_q = len(personality_questions)
 if "logged_in" not in st.session_state:
     st.session_state["logged_in"] = False
 
-if not st.session_state["logged_in"]:
-    login()
+if "page" not in st.session_state:
+    st.session_state.page = "login"
 else:
     show_header()  # panggil selalu header
 
@@ -501,4 +501,5 @@ else:
         profile_page()
     elif st.session_state.page == "logout":
         logout()
+
 
