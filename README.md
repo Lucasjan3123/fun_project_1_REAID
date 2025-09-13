@@ -40,7 +40,7 @@ venv\Scripts\activate       # Windows
 
 ## Akses aplikasi ##
 Buka browser di:
-👉 [https://funproject1reaid-53od7pahufwkrpj9mu9tny.streamlit.app/]
+👉 [https://funproject1reaid-lv8iueqmycfmhjneoetqk8.streamlit.app/]
 
 
 ## 📷 Preview Aplikasi ##
