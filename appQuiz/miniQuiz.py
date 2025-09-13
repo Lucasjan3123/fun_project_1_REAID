@@ -142,7 +142,7 @@ def logout():
 # ====================== TOGGLE SIDEBAR ======================
 def show_sidebar():
     st.markdown(sidebar_style, unsafe_allow_html=True)
-   with st.sidebar:
+with st.sidebar:
     st.markdown('<div class="sidebar-container">', unsafe_allow_html=True)
     st.markdown('<div class="menu-title">📌 Menu</div>', unsafe_allow_html=True)
 
@@ -513,5 +513,4 @@ else:
         profile_page()
     elif st.session_state.page == "logout":
         logout()
-
 
