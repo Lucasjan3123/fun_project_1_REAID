@@ -22,46 +22,50 @@ if "sidebar_visible" not in st.session_state:
 # ====================== CUSTOM STYLE ======================
 sidebar_style = """
 <style>
+/* Styling sidebar */
 [data-testid="stSidebar"] {
     padding: 0;
-    background: linear-gradient(to bottom, white 20%, #1E90FF 20%);
-    border: 2px solid black;
-    border-radius: 8px;
-}
-.sidebar-container {
-    background: linear-gradient(to bottom, #ffffff 30%, #2196F3 30%);
+    background: linear-gradient(to bottom, white 120px, #1E90FF 120px);
     border-right: 2px solid black;
-    padding: 20px;
-    height: 100vh;
+    border-radius: 0;
 }
 
-.menu-button {
-    display: block;
-    background: white;
-    color: black;
-    font-size: 16px;
-    font-weight: 500;
-    text-align: left;
-    border: none;
-    border-radius: 12px;
-    padding: 12px 20px;
-    margin: 10px 0;
-    width: 100%;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
-    transition: all 0.3s ease-in-out;
-    text-decoration: none;
-}
-
-.menu-button:hover {
-    background: #f0f0f0;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 14px rgba(0,0,0,0.2);
-}
-
-.menu-title {
-    font-size: 20px;
+/* Title */
+.sidebar-title {
+    text-align: center;
+    padding: 1.5em 1em;
+    font-size: 1.4em;
     font-weight: bold;
-    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Button wrapper */
+.sidebar-buttons {
+    padding: 1em;
+}
+
+/* Tombol sidebar seragam */
+[data-testid="stSidebar"] button {
+    background-color: white !important;
+    color: black !important;
+    border: 1px solid #ddd !important;
+    padding: 0.8em 1em !important;
+    font-size: 1em !important;
+    font-weight: 500 !important;
+    border-radius: 12px !important;
+    cursor: pointer !important;
+    width: 100% !important;
+    margin: 0.5em 0 !important;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hover effect */
+[data-testid="stSidebar"] button:hover {
+    background-color: #f0f0f0 !important;
+    border: 1px solid #bbb !important;
+    transform: translateY(-2px);
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
 }
 </style>
 """
@@ -142,16 +146,8 @@ def logout():
 # ====================== TOGGLE SIDEBAR ======================
 def show_sidebar():
     st.markdown(sidebar_style, unsafe_allow_html=True)
-with st.sidebar:
-    st.markdown('<div class="sidebar-container">', unsafe_allow_html=True)
-    st.markdown('<div class="menu-title">📌 Menu</div>', unsafe_allow_html=True)
-
-    st.markdown('<a href="#" class="menu-button">🤹 Personality Quiz</a>', unsafe_allow_html=True)
-    st.markdown('<a href="#" class="menu-button">🎯 Quiz</a>', unsafe_allow_html=True)
-    st.markdown('<a href="#" class="menu-button">👤 Profile</a>', unsafe_allow_html=True)
-    st.markdown('<a href="#" class="menu-button">🚪 Logout</a>', unsafe_allow_html=True)
-
-    st.markdown('</div>', unsafe_allow_html=True)
+    st.sidebar.markdown('<div class="sidebar-title">📌 Menu</div>', unsafe_allow_html=True)
+    st.sidebar.markdown('<div class="sidebar-buttons">', unsafe_allow_html=True)
 
     if st.sidebar.button("🎭 Personality Quiz"):
        st.session_state.page = "personality"
@@ -163,7 +159,6 @@ with st.sidebar:
         st.session_state.page = "logout"
 
     st.sidebar.markdown('</div>', unsafe_allow_html=True)
-
 # ====================== HEADER ======================
 def show_header():
     st.markdown(
@@ -489,7 +484,7 @@ personality_questions = [
 total_perso_q = len(personality_questions)
 
 
-# ====================== MAIN App ======================
+# ====================== MAIN APP ======================
 if "logged_in" not in st.session_state:
     st.session_state["logged_in"] = False
 
@@ -513,4 +508,3 @@ else:
         profile_page()
     elif st.session_state.page == "logout":
         logout()
-
