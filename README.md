@@ -83,6 +83,8 @@ Hobi / Interests
 Kontak (Email, LinkedIn, GitHub)
 
 <img width="1335" height="523" alt="image" src="https://github.com/user-attachments/assets/40819f0f-5731-452a-a2a5-615fec9e9e54" />
+<img width="1360" height="536" alt="image" src="https://github.com/user-attachments/assets/787a16d7-18d2-4055-8ae6-d9ed88150560" />
+
 
 
 5. 🚪 Logout
