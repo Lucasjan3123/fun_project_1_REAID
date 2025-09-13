@@ -22,12 +22,14 @@ if "sidebar_visible" not in st.session_state:
 # ====================== CUSTOM STYLE ======================
 sidebar_style = """
 <style>
-/* Styling sidebar */
+/* Sidebar full tinggi */
 [data-testid="stSidebar"] {
     padding: 0;
-    background: linear-gradient(to bottom, white 120px, #1E90FF 120px);
+    height: 100vh;
+    background: linear-gradient(to bottom, white 15vh, #1E90FF 15vh);
     border-right: 2px solid black;
-    border-radius: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Title */
@@ -39,13 +41,18 @@ sidebar_style = """
     color: #333;
 }
 
-/* Button wrapper */
+/* Button wrapper flex */
 .sidebar-buttons {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
     padding: 1em;
+    gap: 0.8em;
 }
 
-/* Tombol sidebar seragam */
+/* Tombol seragam */
 [data-testid="stSidebar"] button {
+    flex: 0 0 auto;
     background-color: white !important;
     color: black !important;
     border: 1px solid #ddd !important;
@@ -53,9 +60,7 @@ sidebar_style = """
     font-size: 1em !important;
     font-weight: 500 !important;
     border-radius: 12px !important;
-    cursor: pointer !important;
     width: 100% !important;
-    margin: 0.5em 0 !important;
     box-shadow: 0 2px 6px rgba(0,0,0,0.15);
     transition: all 0.3s ease-in-out;
 }
@@ -69,6 +74,7 @@ sidebar_style = """
 }
 </style>
 """
+
 
 # ========== LOGIN FUNCTION ==========
 import streamlit as st
@@ -508,3 +514,4 @@ else:
         profile_page()
     elif st.session_state.page == "logout":
         logout()
+
