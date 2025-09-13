@@ -22,57 +22,46 @@ if "sidebar_visible" not in st.session_state:
 # ====================== CUSTOM STYLE ======================
 sidebar_style = """
 <style>
-/* Sidebar wrapper */
 [data-testid="stSidebar"] {
     padding: 0;
-    height: 100vh; /* penuh layar */
-    background: linear-gradient(to bottom, white 15vh, #1E90FF 15vh);
-    border-right: 2px solid black;
-    display: flex;
-    flex-direction: column;
+    background: linear-gradient(to bottom, white 20%, #1E90FF 20%);
+    border: 2px solid black;
+    border-radius: 8px;
 }
-
-/* Title */
 .sidebar-title {
     text-align: center;
-    padding: 1.5em 1em;
-    font-size: 1.4em;
+    padding: 20px;
+    font-size: 22px;
     font-weight: bold;
     color: #333;
 }
-
-/* Button wrapper */
 .sidebar-buttons {
-    flex: 1;  /* ambil sisa tinggi sidebar */
-    display: flex;
-    flex-direction: column;
-    padding: 1em;
-    gap: 0.8em;
+    padding: 20px 15px;
 }
-
-/* Tombol seragam, semua rata tinggi */
-.sidebar-buttons button {
-    flex: 1; /* semua tombol berbagi tinggi sama rata */
-    width: 100% !important;
-    background-color: white !important;
-    color: black !important;
-    border: 1px solid #ddd !important;
-    font-size: 1em !important;
-    font-weight: 500 !important;
-    border-radius: 12px !important;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+div.stButton > button:first-child, .css-1aumxhk button {
+    background-color: white;
+    color: black;
+    border: 1px solid #ddd;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 12px;
+    cursor: pointer;
+    width: 100%;
     transition: all 0.3s ease-in-out;
 }
 
 /* Hover effect */
-.sidebar-buttons button:hover {
-    background-color: #f0f0f0 !important;
-    border: 1px solid #bbb !important;
+div.stButton > button:first-child:hover, .css-1aumxhk button:hover {
+    background-color: #f0f0f0;
+    border: 1px solid #bbb;
     transform: translateY(-2px);
-    box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
 }
+
 </style>
 """
+
 # ========== LOGIN FUNCTION ==========
 import streamlit as st
 
@@ -154,7 +143,7 @@ def show_sidebar():
 
     if st.sidebar.button("🎭 Personality Quiz"):
        st.session_state.page = "personality"
-    if st.sidebar.button("🎯 Quiz "):
+    if st.sidebar.button("🎯 Quiz"):
         st.session_state.page = "quiz"
     if st.sidebar.button("👤 Profile"):
         st.session_state.page = "profile"
@@ -162,6 +151,7 @@ def show_sidebar():
         st.session_state.page = "logout"
 
     st.sidebar.markdown('</div>', unsafe_allow_html=True)
+
 # ====================== HEADER ======================
 def show_header():
     st.markdown(
@@ -487,7 +477,8 @@ personality_questions = [
 total_perso_q = len(personality_questions)
 
 
-# ====================== MAIN APP ======================
+# ====================== MAIN ======================
+# ========== MAIN APP ==========
 if "logged_in" not in st.session_state:
     st.session_state["logged_in"] = False
 
@@ -511,7 +502,3 @@ else:
         profile_page()
     elif st.session_state.page == "logout":
         logout()
-
-
-
-
