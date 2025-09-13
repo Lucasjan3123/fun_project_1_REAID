@@ -157,11 +157,11 @@ def show_sidebar():
 
     if st.sidebar.button("🎭 Personality Quiz"):
        st.session_state.page = "personality"
-    if st.sidebar.button("🎯 Quiz"):
+    if st.sidebar.button("🎯 Quiz           "):
         st.session_state.page = "quiz"
-    if st.sidebar.button("👤 Profile"):
+    if st.sidebar.button("👤 Profile        "):
         st.session_state.page = "profile"
-    if st.sidebar.button("🚪 Logout"):
+    if st.sidebar.button("🚪 Logout         "):
         st.session_state.page = "logout"
 
     st.sidebar.markdown('</div>', unsafe_allow_html=True)
@@ -514,4 +514,5 @@ else:
         profile_page()
     elif st.session_state.page == "logout":
         logout()
+
 
