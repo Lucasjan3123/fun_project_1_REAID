@@ -40,7 +40,7 @@ venv\Scripts\activate       # Windows
 
 ## Akses aplikasi ##
 Buka browser di:
-👉 [http://localhost:8501](https://funproject1reaid-idtxngymum3x79jfss5ez3.streamlit.app/)
+👉 [https://funproject1reaid-idtxngymum3x79jfss5ez3.streamlit.app/]
 
 
 ## 📷 Preview Aplikasi ##
