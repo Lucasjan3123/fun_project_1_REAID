@@ -133,8 +133,8 @@ def login():
 def logout():
     st.session_state["logged_in"] = False
     st.session_state.pop("username", None)
+    st.session_state.page = "personality"   # reset page ke login
     st.rerun()
-
 # ====================== TOGGLE SIDEBAR ======================
 def show_sidebar():
     st.markdown(sidebar_style, unsafe_allow_html=True)
@@ -481,11 +481,10 @@ total_perso_q = len(personality_questions)
 if "logged_in" not in st.session_state:
     st.session_state["logged_in"] = False
 
-if "page" not in st.session_state:
-    st.session_state.page = "login"
+if not st.session_state["logged_in"]:
+    login()
 else:
     show_header()  # panggil selalu header
-
     if st.session_state.sidebar_visible:
         show_sidebar()
     else:
@@ -501,5 +500,8 @@ else:
         profile_page()
     elif st.session_state.page == "logout":
         logout()
+    elif st.session_state.page == "login":  # supaya setelah logout bisa balik ke login
+        login()
+
 
 
