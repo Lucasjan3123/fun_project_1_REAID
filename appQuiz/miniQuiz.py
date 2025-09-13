@@ -22,10 +22,10 @@ if "sidebar_visible" not in st.session_state:
 # ====================== CUSTOM STYLE ======================
 sidebar_style = """
 <style>
-/* Sidebar full tinggi */
+/* Sidebar wrapper */
 [data-testid="stSidebar"] {
     padding: 0;
-    height: 100vh;
+    height: 100vh; /* penuh layar */
     background: linear-gradient(to bottom, white 15vh, #1E90FF 15vh);
     border-right: 2px solid black;
     display: flex;
@@ -41,17 +41,18 @@ sidebar_style = """
     color: #333;
 }
 
-/* Button wrapper flex */
-sidebar-buttons {
+/* Button wrapper */
+.sidebar-buttons {
+    flex: 1;  /* ambil sisa tinggi sidebar */
     display: flex;
     flex-direction: column;
     padding: 1em;
     gap: 0.8em;
-    height: 100%;   /* pastikan penuh */
 }
 
+/* Tombol seragam, semua rata tinggi */
 .sidebar-buttons button {
-    flex: 1;   /* semua tombol berbagi tinggi sama rata */
+    flex: 1; /* semua tombol berbagi tinggi sama rata */
     width: 100% !important;
     background-color: white !important;
     color: black !important;
@@ -59,26 +60,12 @@ sidebar-buttons {
     font-size: 1em !important;
     font-weight: 500 !important;
     border-radius: 12px !important;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-}
-
-/* Tombol seragam */
-[data-testid="stSidebar"] button {
-    flex: 0 0 auto;
-    background-color: white !important;
-    color: black !important;
-    border: 1px solid #ddd !important;
-    padding: 0.8em 1em !important;
-    font-size: 1em !important;
-    font-weight: 500 !important;
-    border-radius: 12px !important;
-    width: 100% !important;
     box-shadow: 0 2px 6px rgba(0,0,0,0.15);
     transition: all 0.3s ease-in-out;
 }
 
 /* Hover effect */
-[data-testid="stSidebar"] button:hover {
+.sidebar-buttons button:hover {
     background-color: #f0f0f0 !important;
     border: 1px solid #bbb !important;
     transform: translateY(-2px);
@@ -86,8 +73,6 @@ sidebar-buttons {
 }
 </style>
 """
-
-
 # ========== LOGIN FUNCTION ==========
 import streamlit as st
 
@@ -526,6 +511,7 @@ else:
         profile_page()
     elif st.session_state.page == "logout":
         logout()
+
 
 
 
