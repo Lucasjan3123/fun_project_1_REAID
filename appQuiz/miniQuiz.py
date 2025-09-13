@@ -28,35 +28,40 @@ sidebar_style = """
     border: 2px solid black;
     border-radius: 8px;
 }
-.sidebar-title {
-    text-align: center;
+.sidebar-container {
+    background: linear-gradient(to bottom, #ffffff 30%, #2196F3 30%);
+    border-right: 2px solid black;
     padding: 20px;
-    font-size: 22px;
-    font-weight: bold;
-    color: #333;
-}
-.sidebar-buttons {
-    padding: 20px 15px;
-}
-div.stButton > button:first-child, .css-1aumxhk button {
-    background-color: white;
-    color: black;
-    border: 1px solid #ddd;
-    padding: 12px 24px;
-    font-size: 16px;
-    font-weight: 500;
-    border-radius: 12px;
-    cursor: pointer;
-    width: 100%;
-    transition: all 0.3s ease-in-out;
+    height: 100vh;
 }
 
-/* Hover effect */
-div.stButton > button:first-child:hover, .css-1aumxhk button:hover {
-    background-color: #f0f0f0;
-    border: 1px solid #bbb;
+.menu-button {
+    display: block;
+    background: white;
+    color: black;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: left;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 20px;
+    margin: 10px 0;
+    width: 100%;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+}
+
+.menu-button:hover {
+    background: #f0f0f0;
     transform: translateY(-2px);
-    box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+}
+
+.menu-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
 }
 </style>
 """
@@ -137,8 +142,16 @@ def logout():
 # ====================== TOGGLE SIDEBAR ======================
 def show_sidebar():
     st.markdown(sidebar_style, unsafe_allow_html=True)
-    st.sidebar.markdown('<div class="sidebar-title">📌 Menu</div>', unsafe_allow_html=True)
-    st.sidebar.markdown('<div class="sidebar-buttons">', unsafe_allow_html=True)
+   with st.sidebar:
+    st.markdown('<div class="sidebar-container">', unsafe_allow_html=True)
+    st.markdown('<div class="menu-title">📌 Menu</div>', unsafe_allow_html=True)
+
+    st.markdown('<a href="#" class="menu-button">🤹 Personality Quiz</a>', unsafe_allow_html=True)
+    st.markdown('<a href="#" class="menu-button">🎯 Quiz</a>', unsafe_allow_html=True)
+    st.markdown('<a href="#" class="menu-button">👤 Profile</a>', unsafe_allow_html=True)
+    st.markdown('<a href="#" class="menu-button">🚪 Logout</a>', unsafe_allow_html=True)
+
+    st.markdown('</div>', unsafe_allow_html=True)
 
     if st.sidebar.button("🎭 Personality Quiz"):
        st.session_state.page = "personality"
@@ -500,4 +513,5 @@ else:
         profile_page()
     elif st.session_state.page == "logout":
         logout()
+
 
