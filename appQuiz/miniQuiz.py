@@ -38,23 +38,25 @@ sidebar_style = """
 .sidebar-buttons {
     padding: 20px 15px;
 }
-.stButton>button {
-    display: block;
-    width: 100%;
-    padding: 12px 20px;
-    margin: 10px 0;
-    text-align: center;
-    border: 2px solid black;
-    border-radius: 20px;
+div.stButton > button:first-child, .css-1aumxhk button {
     background-color: white;
     color: black;
+    border: 1px solid #ddd;
+    padding: 12px 24px;
     font-size: 16px;
-    font-weight: bold;
+    font-weight: 500;
+    border-radius: 12px;
     cursor: pointer;
-    transition: 0.3s;
+    width: 100%;
+    transition: all 0.3s ease-in-out;
 }
-.stButton>button:hover {
+
+/* Hover effect */
+div.stButton > button:first-child:hover, .css-1aumxhk button:hover {
     background-color: #f0f0f0;
+    border: 1px solid #bbb;
+    transform: translateY(-2px);
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
 }
 </style>
 """
@@ -498,3 +500,4 @@ else:
         profile_page()
     elif st.session_state.page == "logout":
         logout()
+
