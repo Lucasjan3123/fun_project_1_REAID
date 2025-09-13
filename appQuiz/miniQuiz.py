@@ -372,9 +372,9 @@ def profile_page():
 
     # Bagian kontak
     st.subheader("📬 Get in Touch")
-    st.write(f"📧 Email: {username}@example.com")
-    st.write("🌐 LinkedIn: [linkedin.com/in/yourprofile](https://linkedin.com)")
-    st.write("🐙 GitHub: [github.com/yourusername](https://github.com)")
+    st.write(f"📧 Email: {lucasjanmalvin}@gmail.com")
+    st.write("🌐 LinkedIn: [www.linkedin.com/in/lucas-jan-malvin-a7361b221)
+    st.write("🐙 GitHub: [https://github.com/Lucasjan3123")
 
 
 # ====================== QUESTIONS DATA ======================
@@ -501,4 +501,5 @@ else:
         profile_page()
     elif st.session_state.page == "logout":
         logout()
+
 
